@@ -24,7 +24,7 @@ export function AeronaveDetailPage() {
     if (!aeronave) {
         return (
             <div className="page-container">
-                <h2>Aeronave não encontradaaaa</h2>
+                <h2>Aeronave não encontrada</h2>
                 <button onClick={() => navigate("/aeronaves")} className="btn-secondary">
                     Voltar para a Lista
                 </button>
