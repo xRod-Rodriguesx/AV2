@@ -1,8 +1,7 @@
-// src/components/forms/AddPecaForm.tsx
 import React, { useState } from 'react';
 import { useDatabase } from '../../contexts/DatabaseContext';
 import { Aeronave, Peca, TipoPeca } from '../../logic/models';
-import './FormStyles.css'; // Reutilizando o CSS que já temos
+import './FormStyles.css'; 
 
 interface Props {
     aeronave: Aeronave;
@@ -10,7 +9,7 @@ interface Props {
 }
 
 export function AddPecaForm({ aeronave, onClose }: Props) {
-    const { updateAeronave } = useDatabase(); // Pegamos nossa nova função!
+    const { updateAeronave } = useDatabase(); 
 
     const [nome, setNome] = useState('');
     const [fornecedor, setFornecedor] = useState('');
@@ -25,12 +24,12 @@ export function AddPecaForm({ aeronave, onClose }: Props) {
         }
 
         const novaPeca = new Peca(nome, tipo, fornecedor);
-        aeronave.adicionarPeca(novaPeca); // 1. Adiciona a peça ao objeto aeronave
+        aeronave.adicionarPeca(novaPeca); 
 
-        updateAeronave(aeronave); // 2. "Avisa" o React que a aeronave mudou
+        updateAeronave(aeronave); 
         
         console.log("Peça Adicionada!", novaPeca);
-        onClose(); // 3. Fecha o modal
+        onClose();
     };
 
     return (

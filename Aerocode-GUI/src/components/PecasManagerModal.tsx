@@ -1,9 +1,8 @@
-// src/components/PecasManagerModal.tsx
 import { useState } from 'react';
-import { Aeronave, Peca } from '../logic/models'; // 1. Importar Peca
+import { Aeronave, Peca } from '../logic/models';
 import { Modal } from './Modal';
 import { AddPecaForm } from './forms/AddPecaForm';
-import { UpdatePecaStatusForm } from './forms/UpdatePecaStatusForm'; // 2. Importar o novo formulário
+import { UpdatePecaStatusForm } from './forms/UpdatePecaStatusForm'; 
 import './ManagerModal.css';
 
 interface Props {
@@ -13,11 +12,9 @@ interface Props {
 export function PecasManagerModal({ aeronave }: Props) {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     
-    // 3. Novo estado para controlar qual peça estamos editando
     const [pecaParaEditar, setPecaParaEditar] = useState<Peca | null>(null);
 
     const handleUpdateStatus = (peca: Peca) => {
-        // 4. Em vez de um alert, agora "setamos" a peça para edição
         setPecaParaEditar(peca);
     }
 
@@ -73,7 +70,7 @@ export function PecasManagerModal({ aeronave }: Props) {
                 />
             </Modal>
 
-            {/* 6. NOVO: Modal para Atualizar Status */}
+            {/* Modal para Atualizar Status */}
             <Modal isOpen={!!pecaParaEditar} onClose={() => setPecaParaEditar(null)}>
                 {pecaParaEditar && ( 
                     <UpdatePecaStatusForm

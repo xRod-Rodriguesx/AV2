@@ -1,8 +1,7 @@
-// src/components/forms/AddEtapaForm.tsx
 import React, { useState } from 'react';
 import { useDatabase } from '../../contexts/DatabaseContext';
 import { Aeronave, Etapa } from '../../logic/models';
-import './FormStyles.css'; // Reutilizando nosso CSS
+import './FormStyles.css'; 
 
 interface Props {
     aeronave: Aeronave;

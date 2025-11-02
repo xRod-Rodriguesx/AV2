@@ -1,10 +1,8 @@
-// src/pages/HomePage.tsx
-import './PageStyles.css'; // Reutilizando os estilos de página
-import { useAuth } from '../contexts/AuthContext'; // Para personalizar a mensagem
+import './PageStyles.css'; 
+import { useAuth } from '../contexts/AuthContext'; 
 
 export function HomePage() {
-    const { usuarioLogado } = useAuth(); // Pega o usuário logado
-
+    const { usuarioLogado } = useAuth(); 
     return (
         <div className="page-container" style={{ textAlign: 'center', paddingTop: '50px' }}>
             

@@ -1,13 +1,11 @@
-// src/pages/AeronavesPage.tsx
 import { useState } from "react";
 import { Aeronave, StatusEtapa } from "../logic/models";
 import { useDatabase } from "../contexts/DatabaseContext";
 import './PageStyles.css';
 import { Modal } from "../components/Modal";
 import { AddAeronaveForm } from "../components/forms/AddAeronaveForm";
-import { useNavigate } from "react-router-dom"; // 1. Importar useNavigate
+import { useNavigate } from "react-router-dom"; 
 
-// ... (função getStatusProducao continua a mesma) ...
 function getStatusProducao(aeronave: Aeronave): string {
     const etapaEmAndamento = aeronave.etapas.find(e => e.status === StatusEtapa.ANDAMENTO);
     if (etapaEmAndamento) {
@@ -27,10 +25,9 @@ function getStatusProducao(aeronave: Aeronave): string {
 export function AeronavesPage() {
     const { aeronaves } = useDatabase();
     const [isModalAberto, setIsModalAberto] = useState(false);
-    const navigate = useNavigate(); // 2. Iniciar o hook
+    const navigate = useNavigate(); 
 
     const handleGerenciar = (aeronave: Aeronave) => {
-        // 3. ALTERADO: Agora navega para a URL dinâmica
         navigate(`/aeronaves/${aeronave.codigo}`);
     };
 
@@ -44,7 +41,7 @@ export function AeronavesPage() {
             </div>
 
             <table className="data-table">
-                {/* ... (código da tabela continua o mesmo) ... */}
+                {}
                 <thead>
                     <tr>
                         <th>Código</th>

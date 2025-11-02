@@ -1,4 +1,3 @@
-// src/pages/AeronaveDetailPage.tsx
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDatabase } from "../contexts/DatabaseContext";
@@ -6,7 +5,7 @@ import { Modal } from "../components/Modal";
 import { PecasManagerModal } from "../components/PecasManagerModal";
 import { EtapasManagerModal } from "../components/EtapasManagerModal"; 
 import { RegistrarTesteForm } from "../components/forms/RegistrarTesteForm";
-import { Relatorio } from "../logic/models"; // 1. Importar a classe Relatorio
+import { Relatorio } from "../logic/models";
 import './AeronaveDetailPage.css';
 
 export function AeronaveDetailPage() {
@@ -32,17 +31,13 @@ export function AeronaveDetailPage() {
         );
     }
 
-    // 2. FUNÇÃO ATUALIZADA para Gerar Relatório
     const handleGerarRelatorio = () => {
         const relatorio = new Relatorio();
         
-        // 1. Gera a string do relatório
         const conteudo = relatorio.gerarRelatorio(aeronave);
         
-        // 2. Chama o método de salvar para web (download)
         relatorio.salvarEmArquivoWeb(conteudo, aeronave.codigo);
 
-        // Opcional: Mostrar o relatório no console também
         console.log(conteudo);
     };
 
@@ -68,7 +63,7 @@ export function AeronaveDetailPage() {
                 <button className="hub-button" onClick={() => setIsTestesModalOpen(true)}>
                     Registrar Testes
                 </button>
-                {/* 3. O botão agora chama a função correta */}
+                {}
                 <button className="hub-button btn-danger" onClick={handleGerarRelatorio}>
                     Gerar Relatório Final
                 </button>

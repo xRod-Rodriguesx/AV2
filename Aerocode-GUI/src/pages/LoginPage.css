@@ -1,5 +1,3 @@
-/* src/pages/LoginPage.css */
-
 .fullscreen-center-container {
     display: flex;
     justify-content: center; 
@@ -20,22 +18,22 @@
     text-align: center; 
 }
 
-/* Estilo para o título "AeroCode" */
+
 .aerocode-title {
     font-size: 2.5em; 
     margin-bottom: 5px; 
-    color: var(--aerocode-title-color); /* AGORA USA A NOVA VARIÁVEL AZUL CLARO */
+    color: var(--aerocode-title-color); 
     font-weight: 700; 
 }
 
-/* Estilo para o subtítulo "Login" */
+
 .login-subtitle {
     font-size: 1.2em; 
     margin-bottom: 30px; 
     color: var(--text-light-color); 
 }
 
-/* Estilo para as labels "Usuário" e "Senha" */
+
 .login-page-card .form-group label {
     color: var(--text-color); 
     font-weight: bold;
@@ -45,7 +43,7 @@
     margin-top: 15px; 
 }
 
-/* Estilo para os campos de digitação (input) */
+
 .login-page-card input[type="text"],
 .login-page-card input[type="password"] {
     background-color: var(--input-background-color); 

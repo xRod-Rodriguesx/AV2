@@ -1,8 +1,7 @@
-// src/components/forms/RegistrarTesteForm.tsx
 import React, { useState } from 'react';
 import { useDatabase } from '../../contexts/DatabaseContext';
 import { Aeronave, Teste, TipoTeste, ResultadoTeste } from '../../logic/models';
-import './FormStyles.css'; // Reutilizando nosso CSS
+import './FormStyles.css'; 
 
 interface Props {
     aeronave: Aeronave;
@@ -12,7 +11,6 @@ interface Props {
 export function RegistrarTesteForm({ aeronave, onClose }: Props) {
     const { updateAeronave } = useDatabase();
 
-    // Valores padrão para os dropdowns
     const [tipo, setTipo] = useState(TipoTeste.ELETRICO);
     const [resultado, setResultado] = useState(ResultadoTeste.APROVADO);
 
@@ -20,11 +18,11 @@ export function RegistrarTesteForm({ aeronave, onClose }: Props) {
         e.preventDefault();
         
         const novoTeste = new Teste(tipo, resultado);
-        aeronave.adicionarTeste(novoTeste); // 1. Adiciona o teste ao objeto aeronave
-        updateAeronave(aeronave); // 2. "Avisa" o React que a aeronave mudou
+        aeronave.adicionarTeste(novoTeste); 
+        updateAeronave(aeronave); 
         
         console.log("Teste Registrado!", novoTeste);
-        onClose(); // 3. Fecha o modal
+        onClose(); 
     };
 
     return (
@@ -44,7 +42,7 @@ export function RegistrarTesteForm({ aeronave, onClose }: Props) {
             <div className="form-group">
                 <label htmlFor="resultado">Resultado do Teste</label>
                 <select id="resultado" value={resultado} onChange={e => setResultado(e.target.value as ResultadoTeste)}>
-                    {/* Mapeia o Enum 'ResultadoTeste' para as opções */}
+                    {}
                     {Object.values(ResultadoTeste).map(r => (
                         <option key={r} value={r}>{r}</option>
                     ))}

@@ -1,7 +1,5 @@
-// src/contexts/AuthContext.tsx
 import React, { createContext, useContext, useState } from "react";
 import { Funcionario } from "../logic/models";
-// 1. IMPORTAR o hook do outro "cérebro"
 import { useDatabase } from "./DatabaseContext"; 
 
 interface IAuthContext {
@@ -15,12 +13,10 @@ const AuthContext = createContext<IAuthContext>(null!);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [usuarioLogado, setUsuarioLogado] = useState<Funcionario | null>(null);
     
-    // 2. PEGAR a lista de funcionários "ao vivo" do DatabaseContext
     const { funcionarios, salvarDados } = useDatabase(); 
 
     const login = (usuario: string, senha: string): boolean => {
         
-        // 3. USAR a lista "ao vivo", em vez do 'db.funcionarios' estático
         const funcionario = funcionarios.find(
             (f) => f.usuario === usuario
         );
@@ -38,7 +34,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const logout = () => {
         setUsuarioLogado(null);
-        // 4. BÔNUS: Agora o logout também chama o "Salvar Dados"
         salvarDados(); 
         console.log("Usuário deslogado, dados salvos (simulado).");
     };

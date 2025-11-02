@@ -1,6 +1,5 @@
-// src/components/Modal.tsx
 import React from 'react';
-import './Modal.css'; // Vamos criar este CSS
+import './Modal.css';
 
 interface Props {
     isOpen: boolean;

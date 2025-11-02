@@ -1,9 +1,7 @@
-// src/components/EtapasManagerModal.tsx
 import { useState } from 'react';
 import { Aeronave, Funcionario, Etapa } from '../logic/models';
 import { Modal } from './Modal';
 import { AddEtapaForm } from './forms/AddEtapaForm';
-// 1. Importar o novo formulário
 import { AssociarFuncionarioForm } from './forms/AssociarFuncionarioForm'; 
 import { useDatabase } from '../contexts/DatabaseContext';
 import './ManagerModal.css';
@@ -14,7 +12,6 @@ interface Props {
 
 export function EtapasManagerModal({ aeronave }: Props) {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-    // 2. Novo estado para controlar qual etapa estamos associando
     const [etapaParaAssociar, setEtapaParaAssociar] = useState<Etapa | null>(null);
     const { updateAeronave } = useDatabase(); 
 
@@ -31,8 +28,7 @@ export function EtapasManagerModal({ aeronave }: Props) {
     }
 
     const handleAssociarFuncionario = (etapa: Etapa) => {
-        // 3. Em vez de um alert, agora "setamos" a etapa para associação
-        setEtapaParaAssociar(etapa);
+       setEtapaParaAssociar(etapa);
     }
 
     return (
@@ -97,7 +93,7 @@ export function EtapasManagerModal({ aeronave }: Props) {
                 />
             </Modal>
 
-            {/* 4. NOVO: Modal para Associar Funcionário */}
+            {/* Modal para Associar Funcionário */}
             <Modal isOpen={!!etapaParaAssociar} onClose={() => setEtapaParaAssociar(null)}>
                 {etapaParaAssociar && ( 
                     <AssociarFuncionarioForm

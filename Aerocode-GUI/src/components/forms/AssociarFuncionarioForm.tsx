@@ -1,8 +1,7 @@
-// src/components/forms/AssociarFuncionarioForm.tsx
 import React, { useState } from 'react';
 import { useDatabase } from '../../contexts/DatabaseContext';
 import { Aeronave, Etapa, Funcionario } from '../../logic/models';
-import './FormStyles.css'; // Reutilizando nosso CSS de formulário
+import './FormStyles.css'; 
 
 interface Props {
     aeronave: Aeronave;
@@ -25,13 +24,13 @@ export function AssociarFuncionarioForm({ aeronave, etapa, onClose }: Props) {
         const funcionarioSelecionado = funcionarios.find(f => f.id === selectedFuncionarioId);
 
         if (funcionarioSelecionado) {
-            // 1. Chama a lógica da classe (modelo)
+     
             etapa.associarFuncionario(funcionarioSelecionado);
             
-            // 2. Avisa o React que a aeronave (e suas etapas) mudou
+        
             updateAeronave(aeronave); 
             
-            onClose(); // 3. Fecha o modal
+            onClose(); 
         } else {
             setErro("Por favor, selecione um funcionário.");
         }

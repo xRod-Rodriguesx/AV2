@@ -1,4 +1,3 @@
-// src/components/Header.tsx (Completo e Atualizado)
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { NivelPermissao } from '../logic/models';
@@ -16,7 +15,7 @@ export function Header() {
     return (
         <header className="app-header">
             <div className="header-brand">
-                {/* 4. ALTERADO: Link do logo agora aponta para a raiz (HomePage) */}
+                {}
                 <Link to="/">AeroCode GUI</Link>
             </div>
             
@@ -38,7 +37,6 @@ export function Header() {
                         <button onClick={handleLogout} className="btn-danger">Salvar e Sair</button>
                     </>
                 ) : (
-                    // Este link só apareceria se o Header fosse mostrado na tela de login (o que não é o caso)
                     <Link to="/login" className="btn-primary">Login</Link>
                 )}
             </div>

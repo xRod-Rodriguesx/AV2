@@ -1,8 +1,7 @@
-// src/components/forms/AddFuncionarioForm.tsx
 import React, { useState } from 'react';
 import { useDatabase } from '../../contexts/DatabaseContext';
 import { Funcionario, NivelPermissao } from '../../logic/models';
-import './FormStyles.css'; // Reutilizando o CSS
+import './FormStyles.css'; 
 
 interface Props {
     onClose: () => void;
@@ -17,13 +16,13 @@ export function AddFuncionarioForm({ onClose }: Props) {
     const [endereco, setEndereco] = useState('');
     const [usuario, setUsuario] = useState('');
     const [senha, setSenha] = useState('');
-    const [nivelPermissao, setNivelPermissao] = useState(NivelPermissao.OPERADOR); // Padrão
+    const [nivelPermissao, setNivelPermissao] = useState(NivelPermissao.OPERADOR); 
     const [erro, setErro] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Guardião dos Requisitos: Validar usuário único
+        // Validar usuário único
         if (funcionarios.find(f => f.usuario === usuario)) {
             setErro('Erro: Este nome de usuário já está em uso.');
             return;
@@ -74,7 +73,7 @@ export function AddFuncionarioForm({ onClose }: Props) {
             <div className="form-group">
                 <label htmlFor="nivel">Nível de Permissão</label>
                 <select id="nivel" value={nivelPermissao} onChange={e => setNivelPermissao(e.target.value as NivelPermissao)}>
-                    {/* Filtramos para não permitir criar outro Admin por engano, se quiséssemos */}
+                    {}
                     {Object.values(NivelPermissao).map(nivel => (
                         <option key={nivel} value={nivel}>{nivel}</option>
                     ))}

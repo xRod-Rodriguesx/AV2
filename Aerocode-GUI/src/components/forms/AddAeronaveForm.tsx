@@ -1,9 +1,6 @@
-// src/components/forms/AddAeronaveForm.tsx
 import React, { useState } from 'react';
 import { useDatabase } from '../../contexts/DatabaseContext';
 import { Aeronave, TipoAeronave } from '../../logic/models';
-
-// Vamos criar este CSS em breve
 import './FormStyles.css';
 
 // Este componente recebe uma prop 'onClose' para poder se fechar
@@ -17,7 +14,7 @@ export function AddAeronaveForm({ onClose }: Props) {
     // Estados para cada campo do formulário
     const [codigo, setCodigo] = useState('');
     const [modelo, setModelo] = useState('');
-    const [tipo, setTipo] = useState(TipoAeronave.COMERCIAL); // Valor padrão
+    const [tipo, setTipo] = useState(TipoAeronave.COMERCIAL); 
     const [capacidade, setCapacidade] = useState(0);
     const [alcance, setAlcance] = useState(0);
     const [erro, setErro] = useState('');
@@ -25,7 +22,7 @@ export function AddAeronaveForm({ onClose }: Props) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Guardião dos Requisitos: Validar código único
+        //Validar código único
         if (aeronaves.find(a => a.codigo === codigo)) {
             setErro('Erro: Já existe uma aeronave com este código.');
             return;

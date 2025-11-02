@@ -1,4 +1,3 @@
-/* src/pages/AeronaveDetailPage.css */
 .hub-actions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -7,7 +6,7 @@
 }
 
 .hub-button {
-    background-color: var(--surface-color); /* Usa a cor de superfície escura */
+    background-color: var(--surface-color); 
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 12px 15px;
@@ -17,7 +16,7 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     box-shadow: var(--box-shadow);
-    color: var(--text-color); /* Garante que o texto seja claro */
+    color: var(--text-color); 
 }
 
 .hub-button:hover {
@@ -39,10 +38,9 @@
     color: white;
 }
 
-/* --- ESTILO PARA OS BOTÕES DE AÇÃO (O ESPAÇAMENTO QUE VOCÊ QUERIA) --- */
 .button-group-aeronave {
-    display: flex; /* Para alinhar os botões em linha */
-    gap: 15px; /* Espaçamento entre os botões */
+    display: flex; 
+    gap: 15px; 
     margin-top: 30px; 
     margin-bottom: 30px; 
     flex-wrap: wrap; 
@@ -56,22 +54,18 @@
     font-weight: 600;
 }
 
-/* --- ESTILOS DO MODAL DE DETALHES COMPLETOS --- */
 .detalhes-modal-content {
     width: 500px;
     max-height: 70vh; 
     overflow-y: auto; 
-    /* Aumentar o padding para dar "respiro" */
     padding: 25px 30px; 
     text-align: left; 
     
-    /* Garante que o texto base seja claro e o fundo seja a superfície escura */
     color: var(--text-color); 
     background-color: var(--surface-color); 
 }
 
 .detalhes-modal-content h2 {
-    /* Título principal do modal */
     text-align: center;
     margin-bottom: 25px;
     padding-bottom: 10px;
@@ -79,34 +73,34 @@
     color: var(--text-color);
 }
 
-/* Estilo para os subtítulos (Peças, Etapas, Testes) */
+
 .detalhes-modal-content section h3 {
     font-size: 1.3rem; 
-    color: var(--aerocode-title-color); /* Destaque com o AZUL CLARO do AeroCode */
-    margin-top: 30px; /* Aumenta o espaçamento entre seções */
+    color: var(--aerocode-title-color); 
+    margin-top: 30px; 
     margin-bottom: 15px; 
-    border-left: 5px solid var(--aerocode-title-color); /* Linha lateral forte */
+    border-left: 5px solid var(--aerocode-title-color);
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: rgba(4, 25, 57, 0.2); /* Sutil fundo escuro para o título */
+    background-color: rgba(4, 25, 57, 0.2); 
 }
 
-/* Estilo para as listas */
+
 .detalhes-modal-content ul,
 .detalhes-modal-content ol {
     padding-left: 25px;
     margin-bottom: 20px; 
 }
 
-/* Estilo para os itens da lista */
+
 .detalhes-modal-content li {
-    margin-bottom: 12px; /* Aumenta o espaçamento entre os itens */
+    margin-bottom: 12px; 
     line-height: 1.6;
-    color: var(--text-light-color); /* Texto base mais suave */
+    color: var(--text-light-color); 
 }
 
 .detalhes-modal-content li strong {
-    color: var(--text-color); /* Deixa a informação chave (Status) muito clara */
+    color: var(--text-color); 
     font-weight: bold;
 }

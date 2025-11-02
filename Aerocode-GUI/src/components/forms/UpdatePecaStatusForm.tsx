@@ -1,8 +1,7 @@
-// src/components/forms/UpdatePecaStatusForm.tsx
 import React, { useState } from 'react';
 import { useDatabase } from '../../contexts/DatabaseContext';
 import { Aeronave, Peca, StatusPeca } from '../../logic/models';
-import './FormStyles.css'; // Reutilizando nosso CSS de formulário
+import './FormStyles.css';
 
 interface Props {
     aeronave: Aeronave;
@@ -11,21 +10,21 @@ interface Props {
 }
 
 export function UpdatePecaStatusForm({ aeronave, peca, onClose }: Props) {
-    const { updateAeronave } = useDatabase(); // Pegamos a função de update!
+    const { updateAeronave } = useDatabase();
     
-    // O estado inicial do dropdown é o status ATUAL da peça
+    
     const [novoStatus, setNovoStatus] = useState(peca.status);
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         
-        // 1. Chama a lógica da classe (modelo)
+      
         peca.atualizarStatus(novoStatus);
         
-        // 2. Avisa o React que a aeronave (e suas peças) mudou
+       
         updateAeronave(aeronave); 
         
-        onClose(); // 3. Fecha o modal
+        onClose(); 
     };
 
     return (

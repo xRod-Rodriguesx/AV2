@@ -1,8 +1,6 @@
-// src/components/AppLayout.tsx
 import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 
-// Vamos criar este CSS também
 import './AppLayout.css';
 
 export function AppLayout() {

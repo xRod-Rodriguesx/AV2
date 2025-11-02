@@ -1,21 +1,17 @@
-// src/pages/FuncionariosPage.tsx
 import { useState } from "react";
 import { useDatabase } from "../contexts/DatabaseContext";
 import { useAuth } from "../contexts/AuthContext";
 import { NivelPermissao } from "../logic/models";
 import { Modal } from "../components/Modal";
 import { AddFuncionarioForm } from "../components/forms/AddFuncionarioForm";
-import './PageStyles.css'; // Reutilizando nosso CSS de página
+import './PageStyles.css'; 
 
 export function FuncionariosPage() {
     const { usuarioLogado } = useAuth();
     const { funcionarios } = useDatabase();
-    
-    // Estado para controlar o modal de cadastro
     const [isModalAberto, setIsModalAberto] = useState(false);
 
-    // GUARDIÃO DOS REQUISITOS: Proteção de Rota
-    // Mesmo que o link esteja oculto, se um usuário não-admin digitar a URL /funcionarios...
+    
     if (usuarioLogado?.nivelPermissao !== NivelPermissao.ADMINISTRADOR) {
         return (
             <div className="page-container" style={{ textAlign: 'center' }}>

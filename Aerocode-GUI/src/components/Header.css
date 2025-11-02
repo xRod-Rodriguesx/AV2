@@ -4,7 +4,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 24px;
-    /* CORREÇÃO: Usar variável de fundo do header (Azul Marinho) */
     background-color: var(--header-background); 
     border-bottom: 1px solid var(--border-color);
     height: 60px;
@@ -13,7 +12,6 @@
 .header-brand a {
     font-size: 1.5rem;
     font-weight: bold;
-    /* CORREÇÃO: Usar a cor de texto do header (Branco) */
     color: var(--header-text-color); 
     text-decoration: none;
 }
@@ -25,7 +23,6 @@
 
 .header-nav a {
     text-decoration: none;
-    /* CORREÇÃO: Links mais claros no Header Escuro */
     color: rgba(255, 255, 255, 0.8); 
     font-weight: 500;
     padding: 8px;
@@ -34,12 +31,11 @@
 }
 
 .header-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Hover suave */
+    background-color: rgba(255, 255, 255, 0.1); 
     color: var(--header-text-color);
 }
 
 .header-nav a.active {
-    /* Estilo para o link que está ativo */
     color: var(--header-text-color);
     background-color: rgba(255, 255, 255, 0.2); 
     font-weight: bold;

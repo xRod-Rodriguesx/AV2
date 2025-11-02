@@ -1,4 +1,3 @@
-// src/pages/LoginPage.tsx (Completo e Corrigido)
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +17,6 @@ export function LoginPage() {
         
         const sucesso = login(usuario, senha);
         if (sucesso) {
-            // CORREÇÃO: Redireciona para a raiz (/)
             navigate("/"); 
         } else {
             setErro("Usuário ou senha inválidos.");

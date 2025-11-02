@@ -1,13 +1,10 @@
-/* src/index.css (Com as Novas Cores do Usuário) */
-
-/* --- VARIÁVEIS CSS (Visual Escuro Fixo com Azul Marinho) --- */
 :root {
     /* Cores Primárias (Botões, Links) */
-    --primary-color: hsl(236, 54%, 34%); /* Azul Marinho Escolhido (Escuro) */
-    --primary-hover-color: hsl(236, 51%, 50%); /* Mantido igual para hover, ou poderia ser um pouco mais claro */
+    --primary-color: hsl(236, 54%, 34%); 
+    --primary-hover-color: hsl(236, 51%, 50%); 
     
     /* Cores Secundárias (Botões Secundários) */
-    --secondary-color: hsl(236, 54%, 34%); /* Cinza Azulado Escuro */
+    --secondary-color: hsl(236, 54%, 34%); 
     --secondary-hover-color: hsl(236, 51%, 50%);
 
     /* Cores de Alerta */   
@@ -15,23 +12,23 @@
     --danger-hover-color: #e53935;
 
     /* Fundo e Superfície */
-    --background-color: #020425; /* Fundo Principal (Quase Preto Azulado) */
-    --surface-color: #1b1d30; /* Fundo de Modais, Cartões, e Tabela */
+    --background-color: #020425; 
+    --surface-color: #1b1d30; 
     
     /* Cores de Texto e Borda */
-    --text-color: #e0e0e0; /* Texto claro */
+    --text-color: #e0e0e0; 
     --text-light-color: #bdbdbd; 
-    --border-color: #2a2e4e; /* Borda mais escura para melhor contraste com o Surface */
+    --border-color: #2a2e4e; 
     --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5); 
 
     /* Header/Navbar */
-    --header-background: #1c204e; /* Azul Marinho Médio */
-    --header-text-color: #ffffff; /* Texto branco no header azul */
+    --header-background: #1c204e; 
+    --header-text-color: #ffffff; 
 
     /* Login Específico */
-    --aerocode-title-color: #546e83; /* AZUL CLARO para o título AeroCode */
-    --input-background-color: #1c204e; /* Fundo dos inputs */
-    --input-border-color: #555c69; /* Borda dos inputs */
+    --aerocode-title-color: #546e83; 
+    --input-background-color: #1c204e; 
+    --input-border-color: #555c69; 
 }
 
 
@@ -75,7 +72,7 @@ button, input[type="submit"] {
 
 /* --- ESTILOS GLOBAIS DE BOTÕES --- */
 .btn-primary {
-    background-color: var(--primary-color); /* Azul Marinho */
+    background-color: var(--primary-color); 
     color: white; 
 }
 .btn-primary:hover {
@@ -83,7 +80,7 @@ button, input[type="submit"] {
 }
 
 .btn-secondary {
-    background-color: var(--secondary-color); /* Cinza Azulado Escuro */
+    background-color: var(--secondary-color); 
     color: white;
 }
 .btn-secondary:hover {
@@ -132,7 +129,7 @@ select:focus,
 textarea:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(4, 25, 57, 0.4); /* Sombra de foco ajustada para o novo primário */
+    box-shadow: 0 0 0 0.2rem rgba(4, 25, 57, 0.4); 
 }
 
 label {
@@ -151,7 +148,7 @@ hr {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background-color: var(--surface-color); /* Usa Surface Color */
+    background-color: var(--surface-color); 
     box-shadow: var(--box-shadow); 
     border-radius: 8px;
     overflow: hidden; 
@@ -159,14 +156,14 @@ hr {
 
 .data-table th,
 .data-table td {
-    border: 1px solid var(--border-color); /* Borda mais escura */
+    border: 1px solid var(--border-color); 
     padding: 12px 15px;
     text-align: left;
     color: var(--text-color);
 }
 
 .data-table th {
-    background-color: var(--header-background); /* Usa o Header Background para o topo da tabela */
+    background-color: var(--header-background); 
     font-weight: bold;
     color: var(--header-text-color);
     text-transform: uppercase;
@@ -178,7 +175,7 @@ hr {
 }
 
 .data-table tbody tr:hover {
-    background-color: rgba(4, 25, 57, 0.4); /* Hover suave com a cor primária */
+    background-color: rgba(4, 25, 57, 0.4); 
 }
 
 .data-table td button {
