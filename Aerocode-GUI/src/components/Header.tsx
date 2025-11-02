@@ -1,38 +1,46 @@
-// src/components/Header.tsx
-import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
-import { NivelPermissao } from "../logic/models";
-
-// Vamos criar este CSS logo em seguida
-import './Header.css'; 
+// src/components/Header.tsx (Completo e Atualizado)
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import { NivelPermissao } from '../logic/models';
+import './Header.css';
 
 export function Header() {
     const { usuarioLogado, logout } = useAuth();
+    const navigate = useNavigate();
 
-    if (!usuarioLogado) {
-        return null; // Não mostra nada se não estiver logado
-    }
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
 
     return (
         <header className="app-header">
-            <div className="header-logo">
-                <Link to="/">AeroCode</Link>
+            <div className="header-brand">
+                {/* 4. ALTERADO: Link do logo agora aponta para a raiz (HomePage) */}
+                <Link to="/">AeroCode GUI</Link>
             </div>
             
             <nav className="header-nav">
-                <NavLink to="/aeronaves">Aeronaves</NavLink>
-                
-                {/* O Guardião dos Requisitos em ação! */}
-                {usuarioLogado.nivelPermissao === NivelPermissao.ADMINISTRADOR && (
-                    <NavLink to="/funcionarios">Funcionários</NavLink>
+                {usuarioLogado && (
+                    <>
+                        {usuarioLogado.nivelPermissao === NivelPermissao.ADMINISTRADOR && (
+                            <NavLink to="/funcionarios">Funcionários</NavLink>
+                        )}
+                        <NavLink to="/aeronaves">Aeronaves</NavLink>
+                    </>
                 )}
             </nav>
 
-            <div className="header-user">
-                <span>Olá, {usuarioLogado.nome}</span>
-                <button onClick={logout} className="logout-button">
-                    Salvar e Sair
-                </button>
+            <div className="header-auth">
+                {usuarioLogado ? (
+                    <>
+                        <span className="welcome-message">Olá, {usuarioLogado.nome}</span>
+                        <button onClick={handleLogout} className="btn-danger">Salvar e Sair</button>
+                    </>
+                ) : (
+                    // Este link só apareceria se o Header fosse mostrado na tela de login (o que não é o caso)
+                    <Link to="/login" className="btn-primary">Login</Link>
+                )}
             </div>
         </header>
     );

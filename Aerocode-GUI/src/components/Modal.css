@@ -13,23 +13,27 @@
 }
 
 .modal-content {
-    background-color: white;
+    /* CORREÇÃO: Usar a cor de superfície escura */
+    background-color: var(--surface-color); 
     border-radius: 8px;
     position: relative;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px 25x 25px 25px;
+    box-shadow: var(--box-shadow);
 }
 
 .modal-close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    /* Posiciona o botão mais para dentro */
+    top: 5px; 
+    right: 10px;
     background: none;
     border: none;
     font-size: 2.0rem;
-    color: #aaa;
+    color: var(--text-light-color); /* Usa a cor de texto suave */
     cursor: pointer;
+    line-height: 1; /* Garante que o X fique na linha */
+    padding: 10px; /* Aumenta a área de clique */
 }
 .modal-close-btn:hover {
-    color: #333;
+    color: red;
 }

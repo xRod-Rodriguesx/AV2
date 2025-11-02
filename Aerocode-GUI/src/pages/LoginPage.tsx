@@ -1,11 +1,13 @@
-// src/pages/LoginPage.tsx
+// src/pages/LoginPage.tsx (Completo e Corrigido)
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom"; // 1. IMPORTE O 'useNavigate'
+import { useNavigate } from "react-router-dom";
+import '../components/forms/FormStyles.css'; 
+import './LoginPage.css'; 
 
 export function LoginPage() {
     const { login } = useAuth();
-    const navigate = useNavigate(); // 2. INICIE O 'navigate'
+    const navigate = useNavigate();
 
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
@@ -16,18 +18,19 @@ export function LoginPage() {
         
         const sucesso = login(usuario, senha);
         if (sucesso) {
-            // 3. A MÁGICA ESTÁ AQUI!
-            // Se o login deu certo, navegue para a página de aeronaves.
-            navigate("/aeronaves"); 
+            // CORREÇÃO: Redireciona para a raiz (/)
+            navigate("/"); 
         } else {
             setErro("Usuário ou senha inválidos.");
         }
     };
 
     return (
-        <div className="login-container"> 
-            <form className="login-form" onSubmit={handleSubmit}>
-                <h2>AeroCode</h2>
+        <div className="fullscreen-center-container"> 
+            <form className="form-container login-page-card" onSubmit={handleSubmit}>
+                <h2 className="aerocode-title">AeroCode</h2> 
+                <p className="login-subtitle">Login</p> 
+                
                 <div className="form-group">
                     <label htmlFor="usuario">Usuário</label>
                     <input
@@ -35,8 +38,10 @@ export function LoginPage() {
                         id="usuario"
                         value={usuario}
                         onChange={(e) => setUsuario(e.target.value)}
+                        onFocus={() => setErro('')} 
                     />
                 </div>
+                
                 <div className="form-group">
                     <label htmlFor="senha">Senha</label>
                     <input
@@ -44,12 +49,13 @@ export function LoginPage() {
                         id="senha"
                         value={senha}
                         onChange={(e) => setSenha(e.target.value)}
+                        onFocus={() => setErro('')} 
                     />
                 </div>
                 
                 {erro && <p className="error-message">{erro}</p>}
 
-                <button type="submit" className="login-button">Entrar</button>
+                <button type="submit" className="btn-primary login-button">Entrar</button>
             </form>
         </div>
     );

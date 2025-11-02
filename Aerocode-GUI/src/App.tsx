@@ -1,37 +1,46 @@
-// src/App.tsx
-import { Routes, Route, Navigate } from "react-router-dom";
-import { useAuth } from "./contexts/AuthContext";
-import { LoginPage } from "./pages/LoginPage";
-import { AppLayout } from "./components/AppLayout";
-import { AeronavesPage } from "./pages/AeronavesPage";
-import { FuncionariosPage } from "./pages/FuncionariosPage";
-import { AeronaveDetailPage } from "./pages/AeronaveDetailPage"; // 1. Importar a nova página
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { LoginPage } from './pages/LoginPage';
+import { AeronavesPage } from './pages/AeronavesPage';
+import { AeronaveDetailPage } from './pages/AeronaveDetailPage';
+import { FuncionariosPage } from './pages/FuncionariosPage';
+import { AppLayout } from './components/AppLayout';
+import { useAuth } from './contexts/AuthContext';
+import { HomePage } from './pages/HomePage'; // Import da nova Home
 
-function ProtectedLayout() {
-    const { usuarioLogado } = useAuth();
-    if (!usuarioLogado) {
-        return <Navigate to="/login" replace />;
-    }
-    return <AppLayout />;
+// Componente que protege rotas
+function PrivateRoute() {
+  const { usuarioLogado } = useAuth();
+  const location = useLocation();
+
+  if (!usuarioLogado) {
+    // Se não estiver logado, redireciona para o login
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+  
+  // Se estiver logado, renderiza o "Casco" (AppLayout), 
+  // que por sua vez renderiza a página filha (HomePage, AeronavesPage, etc.)
+  return <AppLayout />;
 }
 
 function App() {
-    return (
-        <Routes>
-            <Route path="/login" element={<LoginPage />} />
-
-            <Route element={<ProtectedLayout />}>
-                <Route index element={<Navigate to="/aeronaves" replace />} />
-                
-                <Route path="aeronaves" element={<AeronavesPage />} />
-                
-                {/* 2. ROTA DINÂMICA: O ':id' captura o código da aeronave */}
-                <Route path="aeronaves/:id" element={<AeronaveDetailPage />} /> 
-
-                <Route path="funcionarios" element={<FuncionariosPage />} />
-            </Route>
-        </Routes>
-    )
+  // Lógica de Dark Mode REMOVIDA
+  return (
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      
+      {/* Rotas Protegidas */}
+      <Route element={<PrivateRoute />}>
+        {/* Rotas que serão renderizadas DENTRO do <Outlet> do AppLayout */}
+        
+        {/* Rota Raiz (/) agora é a HomePage */}
+        <Route index element={<HomePage />} /> 
+        
+        <Route path="aeronaves" element={<AeronavesPage />} />
+        <Route path="aeronaves/:id" element={<AeronaveDetailPage />} />
+        <Route path="funcionarios" element={<FuncionariosPage />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;

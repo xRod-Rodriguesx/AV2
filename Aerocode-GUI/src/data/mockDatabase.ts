@@ -4,11 +4,11 @@ import { Funcionario, Aeronave, NivelPermissao } from "../logic/models";
 // Este é o ÚNICO usuário que deve existir no início.
 const adminUser = new Funcionario(
     "1",
-    "Admin Principal",
-    "99999-9999",
-    "Sede da AeroCode",
+    "Rod Admin",
+    "1298124-0774",
+    "Sede da AeroCode - CAÇAPAVA - SP",
     "admin",
-    "admin123",
+    "admin",
     NivelPermissao.ADMINISTRADOR
 );
 

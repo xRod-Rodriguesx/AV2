@@ -1,0 +1,65 @@
+/* src/pages/LoginPage.css */
+
+.fullscreen-center-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    width: 100vw;
+    background-color: var(--background-color); 
+}
+
+.login-page-card {
+    width: 20%; 
+    min-width: 300px; 
+    padding: 40px;
+    background-color: var(--surface-color); 
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    text-align: center; 
+}
+
+/* Estilo para o título "AeroCode" */
+.aerocode-title {
+    font-size: 2.5em; 
+    margin-bottom: 5px; 
+    color: var(--aerocode-title-color); /* AGORA USA A NOVA VARIÁVEL AZUL CLARO */
+    font-weight: 700; 
+}
+
+/* Estilo para o subtítulo "Login" */
+.login-subtitle {
+    font-size: 1.2em; 
+    margin-bottom: 30px; 
+    color: var(--text-light-color); 
+}
+
+/* Estilo para as labels "Usuário" e "Senha" */
+.login-page-card .form-group label {
+    color: var(--text-color); 
+    font-weight: bold;
+    text-align: left; 
+    width: 100%; 
+    display: block; 
+    margin-top: 15px; 
+}
+
+/* Estilo para os campos de digitação (input) */
+.login-page-card input[type="text"],
+.login-page-card input[type="password"] {
+    background-color: var(--input-background-color); 
+    border-color: var(--input-border-color); 
+    color: var(--text-color); 
+}
+
+.login-page-card input[type="text"]:focus,
+.login-page-card input[type="password"]:focus {
+    border-color: var(--primary-color); 
+    box-shadow: 0 0 0 0.2rem rgba(13, 71, 161, 0.25); 
+}
+
+.login-button {
+    width: 100%;
+    margin-top: 20px;
+}
