@@ -1,0 +1,57 @@
+/* src/components/Header.css */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    height: 60px;
+}
+
+.header-logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.header-nav a.active {
+    /* Estilo para o link que está ativo */
+    color: #007bff;
+    background-color: #f0f7ff;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #333;
+}
+
+.logout-button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logout-button:hover {
+    background-color: #d62828;
+}

@@ -1,0 +1,20 @@
+/* src/components/ManagerModal.css */
+.manager-modal-container {
+    width: 700px; /* Modal mais largo para a tabela */
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 10px 20px;
+}
+
+.manager-modal-container h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.manager-actions {
+    margin-bottom: 20px;
+}
+
+.manager-list {
+    margin-top: 20px;
+}

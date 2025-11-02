@@ -1,0 +1,12 @@
+/* src/components/AppLayout.css */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content-area {
+    flex-grow: 1; /* Ocupa todo o espaço restante */
+    padding: 24px;
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
+}

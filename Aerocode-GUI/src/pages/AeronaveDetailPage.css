@@ -1,0 +1,35 @@
+/* ... (o CSS do .hub-button, etc. continua aqui em cima) ... */
+
+.detalhes-modal-content {
+    width: 500px;
+    max-height: 70vh; /* Altura máxima de 70% da tela */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
+    padding: 10px 20px;
+}
+
+.detalhes-modal-content h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.detalhes-modal-content section {
+    margin-bottom: 20px;
+}
+
+.detalhes-modal-content h3 {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+    color: #555;
+}
+
+.detalhes-modal-content ul,
+.detalhes-modal-content ol {
+    padding-left: 20px;
+}
+
+.detalhes-modal-content li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
