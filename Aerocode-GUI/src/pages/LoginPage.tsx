@@ -12,14 +12,16 @@ export function LoginPage() {
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault(); 
         
-        const sucesso = login(usuario, senha);
+        // Adicione 'await' aqui
+        const sucesso = await login(usuario, senha);
+        
         if (sucesso) {
             navigate("/"); 
         } else {
-            setErro("Usuário ou senha inválidos.");
+            setErro("Usuário ou senha inválidos (ou erro de servidor).");
         }
     };
 

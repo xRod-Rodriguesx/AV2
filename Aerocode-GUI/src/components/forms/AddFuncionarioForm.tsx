@@ -19,7 +19,7 @@ export function AddFuncionarioForm({ onClose }: Props) {
     const [nivelPermissao, setNivelPermissao] = useState(NivelPermissao.OPERADOR); 
     const [erro, setErro] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         // Validar usuário único
@@ -36,7 +36,7 @@ export function AddFuncionarioForm({ onClose }: Props) {
         const id = self.crypto.randomUUID();
         const novoFuncionario = new Funcionario(id, nome, telefone, endereco, usuario, senha, nivelPermissao);
         
-        addFuncionario(novoFuncionario);
+        await addFuncionario(novoFuncionario);
         
         console.log("Funcionário Adicionado!", novoFuncionario);
         onClose(); // Fecha o modal

@@ -1,0 +1,114 @@
+// Configuração do Prisma e do Banco de Dados
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// --- ENUMS (Opções Fixas) ---
+
+enum TipoAeronave {
+  COMERCIAL
+  MILITAR
+}
+
+enum TipoPeca {
+  NACIONAL
+  IMPORTADA
+}
+
+enum StatusPeca {
+  EM_PRODUCAO
+  EM_TRANSPORTE
+  PRONTA
+}
+
+enum StatusEtapa {
+  PENDENTE
+  ANDAMENTO
+  CONCLUIDA
+}
+
+enum NivelPermissao {
+  ADMINISTRADOR
+  ENGENHEIRO
+  OPERADOR
+}
+
+enum TipoTeste {
+  ELETRICO
+  HIDRAULICO
+  AERODINAMICO
+}
+
+enum ResultadoTeste {
+  APROVADO
+  REPROVADO
+}
+
+// --- MODELS (Tabelas) ---
+
+model Funcionario {
+  id             String         @id @default(uuid()) // Gera ID único automaticamente
+  nome           String
+  telefone       String
+  endereco       String
+  usuario        String         @unique // Não permite usuários repetidos
+  senha          String
+  nivelPermissao NivelPermissao
+
+  // Relacionamento: Um funcionário pode estar em várias etapas
+  etapas Etapa[]
+}
+
+model Aeronave {
+  codigo     String       @id // O código será o ID (ex: "BOE-737")
+  modelo     String
+  tipo       TipoAeronave
+  capacidade Int
+  alcance    Int
+
+  // Relacionamentos: Uma aeronave tem várias...
+  pecas  Peca[]
+  etapas Etapa[]
+  testes Teste[]
+}
+
+model Peca {
+  id         String     @id @default(uuid())
+  nome       String
+  tipo       TipoPeca
+  fornecedor String
+  status     StatusPeca @default(EM_PRODUCAO)
+
+  // Relacionamento: Pertence a uma Aeronave
+  aeronaveId String
+  aeronave   Aeronave @relation(fields: [aeronaveId], references: [codigo])
+}
+
+model Etapa {
+  id     String      @id @default(uuid())
+  nome   String
+  prazo  String
+  status StatusEtapa @default(PENDENTE)
+
+  // Relacionamento: Pertence a uma Aeronave
+  aeronaveId String
+  aeronave   Aeronave @relation(fields: [aeronaveId], references: [codigo])
+
+  // Relacionamento: Tem vários Funcionários
+  funcionarios Funcionario[]
+}
+
+model Teste {
+  id        String         @id @default(uuid())
+  tipo      TipoTeste
+  resultado ResultadoTeste
+
+  // Relacionamento: Pertence a uma Aeronave
+  aeronaveId String
+  aeronave   Aeronave @relation(fields: [aeronaveId], references: [codigo])
+}

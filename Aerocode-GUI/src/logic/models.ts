@@ -1,35 +1,35 @@
 // --- ENUMS ---
 export enum TipoAeronave {
-    COMERCIAL = 'Comercial',
-    MILITAR = 'Militar',
+    COMERCIAL = 'COMERCIAL', // Antes era 'Comercial'
+    MILITAR = 'MILITAR',     // Antes era 'Militar'
 }
 export enum TipoPeca {
-    NACIONAL = 'Nacional',
-    IMPORTADA = 'Importada',
+    NACIONAL = 'NACIONAL',
+    IMPORTADA = 'IMPORTADA',
 }
 export enum StatusPeca {
-    EM_PRODUCAO = 'Em Produção',
-    EM_TRANSPORTE = 'Em Transporte',
-    PRONTA = 'Pronta',
+    EM_PRODUCAO = 'EM_PRODUCAO',
+    EM_TRANSPORTE = 'EM_TRANSPORTE',
+    PRONTA = 'PRONTA',
 }
 export enum StatusEtapa {
-    PENDENTE = 'Pendente',
-    ANDAMENTO = 'Em Andamento',
-    CONCLUIDA = 'Concluída',
+    PENDENTE = 'PENDENTE',
+    ANDAMENTO = 'ANDAMENTO',
+    CONCLUIDA = 'CONCLUIDA',
 }
 export enum NivelPermissao {
-    ADMINISTRADOR = 'Administrador',
-    ENGENHEIRO = 'Engenheiro',
-    OPERADOR = 'Operador',
+    ADMINISTRADOR = 'ADMINISTRADOR',
+    ENGENHEIRO = 'ENGENHEIRO',
+    OPERADOR = 'OPERADOR',
 }
 export enum TipoTeste {
-    ELETRICO = 'Elétrico',
-    HIDRAULICO = 'Hidráulico',
-    AERODINAMICO = 'Aerodinâmico',
+    ELETRICO = 'ELETRICO',
+    HIDRAULICO = 'HIDRAULICO',
+    AERODINAMICO = 'AERODINAMICO',
 }
 export enum ResultadoTeste {
-    APROVADO = 'Aprovado',
-    REPROVADO = 'Reprovado',
+    APROVADO = 'APROVADO',
+    REPROVADO = 'REPROVADO',
 }
 
 // --- CLASSES DE MODELO ---

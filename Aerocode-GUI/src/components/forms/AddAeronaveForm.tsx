@@ -3,7 +3,6 @@ import { useDatabase } from '../../contexts/DatabaseContext';
 import { Aeronave, TipoAeronave } from '../../logic/models';
 import './FormStyles.css';
 
-// Este componente recebe uma prop 'onClose' para poder se fechar
 interface Props {
     onClose: () => void;
 }
@@ -11,7 +10,6 @@ interface Props {
 export function AddAeronaveForm({ onClose }: Props) {
     const { aeronaves, addAeronave } = useDatabase();
 
-    // Estados para cada campo do formulário
     const [codigo, setCodigo] = useState('');
     const [modelo, setModelo] = useState('');
     const [tipo, setTipo] = useState(TipoAeronave.COMERCIAL); 
@@ -19,10 +17,10 @@ export function AddAeronaveForm({ onClose }: Props) {
     const [alcance, setAlcance] = useState(0);
     const [erro, setErro] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // Agora a função é ASYNC
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        //Validar código único
         if (aeronaves.find(a => a.codigo === codigo)) {
             setErro('Erro: Já existe uma aeronave com este código.');
             return;
@@ -34,10 +32,16 @@ export function AddAeronaveForm({ onClose }: Props) {
         }
 
         const novaAeronave = new Aeronave(codigo, modelo, tipo, capacidade, alcance);
-        addAeronave(novaAeronave);
         
-        console.log("Aeronave Adicionada!", novaAeronave);
-        onClose(); // Fecha o modal após o sucesso
+        // Espera o banco salvar antes de fechar
+        const sucesso = await addAeronave(novaAeronave);
+        
+        if (sucesso) {
+            console.log("Aeronave Salva no MySQL!", novaAeronave);
+            onClose();
+        } else {
+            setErro("Erro ao salvar no banco de dados.");
+        }
     };
 
     return (
