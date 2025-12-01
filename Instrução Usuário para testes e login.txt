@@ -1,0 +1,21 @@
+Login: admin
+Senha: admin
+
+rodar o back e GUI com npm run dev
+e no back rodar o arquivo de teste:
+
+npx ts-node test-load.ts
+
+resultado esperado no terminal: (algo como)
+
+PS C:\Users\Rod Rodrigues\Desktop\AV3\Aerocode-Backend> npx ts-node test-load.ts
+Preparando testes...
+
+--- INICIANDO TESTE PARA 1 USUÁRIO(S) SIMULTÂNEO(S) ---
+Média de Tempo de Resposta: 25.308 ms
+
+--- INICIANDO TESTE PARA 5 USUÁRIO(S) SIMULTÂNEO(S) ---
+Média de Tempo de Resposta: 14.472 ms
+
+--- INICIANDO TESTE PARA 10 USUÁRIO(S) SIMULTÂNEO(S) ---
+Média de Tempo de Resposta: 20.321 ms
