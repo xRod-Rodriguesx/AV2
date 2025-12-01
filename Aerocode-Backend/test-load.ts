@@ -32,7 +32,6 @@ async function rodarTesteDeCarga(quantidadeUsuarios: number) {
     const mediaResponseTime = totalTime / tempos.length;
 
     console.log(`Média de Tempo de Resposta: ${mediaResponseTime.toFixed(3)} ms`);
-    console.log(`(Anote este valor para o seu gráfico!)`);
 }
 
 async function main() {
